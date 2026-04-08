@@ -1,55 +1,45 @@
-/* =========================
-   Mise en page
-   Mobile first
-   ========================= */
-
 main {
-  max-width: 900px;
-}
-
-header {
-  width: min(100% - 2rem, 420px);
-  margin: 1.5rem auto 2rem;
-  min-height: 100px;
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  text-align: center;
-}
-
-header h1,
-header p {
-  margin: 0;
+  width: min(calc(100% - 32px), 456px);
+  margin: 0 auto;
+  padding-top: 0;
 }
 
 section {
-  margin-bottom: 2rem;
+  margin-bottom: 48px;
+}
+
+.site-header {
+  width: 100%;
+  margin: 32px auto 40px;
+}
+
+section h2 {
+  width: 100%;
+  margin: 0 0 12px;
 }
 
 #meilleur-film article {
+  width: 100%;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
-  padding: 0.75rem;
-}
-
-#meilleur-film img {
-  max-width: 220px;
-  justify-self: center;
+  gap: 16px;
+  align-items: start;
 }
 
 #meilleur-film article > div {
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 16px;
 }
 
 .liste-films {
+  width: 100%;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: 16px;
 }
 
 #films-mieux-notes > button,
@@ -57,34 +47,27 @@ section {
 #categorie-2 > button,
 #autres-categories > button {
   display: block;
-  margin: 1rem auto 0;
+  margin: 16px auto 0;
 }
 
 #autres-categories label {
-  display: inline-block;
-  margin-right: 0.5rem;
+  margin-right: 8px;
 }
 
 #autres-categories select {
   display: inline-block;
   width: auto;
-  min-width: 170px;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
-/* =========================
-   Tablette
-   ========================= */
-
 @media screen and (min-width: 768px) {
-  #meilleur-film article {
-    grid-template-columns: 140px 1fr;
-    align-items: start;
+  main {
+    width: min(calc(100% - 48px), 788px);
   }
 
-  #meilleur-film img {
-    width: 100%;
-    max-width: none;
+  #meilleur-film article {
+    grid-template-columns: 180px 1fr;
+    min-height: 280px;
   }
 
   .liste-films {
@@ -92,12 +75,30 @@ section {
   }
 }
 
-/* =========================
-   Desktop
-   ========================= */
-
 @media screen and (min-width: 1024px) {
+  main {
+    width: min(calc(100% - 64px), 1054px);
+  }
+
+  .site-header {
+    max-width: 837px;
+  }
+
+  section h2 {
+    max-width: 835px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #meilleur-film article {
+    max-width: 835px;
+    min-height: 369px;
+    grid-template-columns: 227px 1fr;
+    gap: 28px;
+  }
+
   .liste-films {
+    max-width: 835px;
     grid-template-columns: repeat(3, 1fr);
   }
 }
