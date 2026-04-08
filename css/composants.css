@@ -1,0 +1,240 @@
+/* =========================
+   COMPOSANTS
+   ========================= */
+
+/* Fond général */
+body {
+  background-color: #ffffff;
+}
+
+/* =========================
+   HEADER
+   Provisoire : à ajuster avec tes mesures
+   ========================= */
+
+header {
+  background-color: #6f858c;
+  color: #ffffff;
+  min-height: 72px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+header p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* =========================
+   TITRES DE SECTION
+   Provisoire : à ajuster avec tes mesures
+   ========================= */
+
+section h2 {
+  margin-bottom: 0.75rem;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #000000;
+}
+
+/* =========================
+   MEILLEUR FILM
+   Provisoire sauf bouton
+   ========================= */
+
+#meilleur-film article {
+  border: 3px solid #000000;
+  background-color: #ffffff;
+  padding: 0.75rem;
+}
+
+#meilleur-film img {
+  width: 100%;
+  max-width: 220px;
+  justify-self: center;
+  border: 1px solid #000000;
+}
+
+#meilleur-film h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #000000;
+}
+
+#meilleur-film p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  color: #000000;
+}
+
+/* =========================
+   CARTES DE FILMS
+   Provisoire : à ajuster avec tes mesures
+   ========================= */
+
+.liste-films article {
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.liste-films img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border: 1px solid #000000;
+}
+
+.liste-films h3 {
+  position: absolute;
+  top: 0.4rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* =========================
+   BOUTONS ROUGES
+   Validé avec ta maquette
+   - largeur : 166px
+   - hauteur : 68px
+   - rayon : 25px
+   - couleur : #FA0B0B
+   ========================= */
+
+#meilleur-film button,
+#films-mieux-notes > button,
+#categorie-1 > button,
+#categorie-2 > button,
+#autres-categories > button {
+  width: 166px;
+  height: 68px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  border: none;
+  border-radius: 25px;
+  background-color: #fa0b0b;
+  color: #ffffff;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* =========================
+   SELECT AUTRES
+   Provisoire : à ajuster avec tes mesures
+   ========================= */
+
+#autres-categories label {
+  font-weight: 700;
+  color: #000000;
+}
+
+#autres-categories select {
+  min-width: 170px;
+  padding: 0.35rem 2rem 0.35rem 0.5rem;
+  border: 1px solid #000000;
+  border-radius: 0;
+  background-color: #ffffff;
+  color: #111827;
+}
+
+/* =========================
+   MODALE
+   Provisoire : on la refera avec tes mesures
+   ========================= */
+
+#modale-film {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.55);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+#modale-film[hidden] {
+  display: none !important;
+}
+
+.contenu-modale {
+  position: relative;
+  width: min(100%, 780px);
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: #ffffff;
+  border: 4px solid #000000;
+  padding: 1rem;
+}
+
+.contenu-modale > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 25px;
+  background-color: #fa0b0b;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.contenu-modale img {
+  width: 100%;
+  max-width: 260px;
+  margin: 0 auto 1rem;
+  border: 1px solid #000000;
+}
+
+.contenu-modale h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #000000;
+}
+
+.contenu-modale p {
+  margin-bottom: 0.75rem;
+  color: #000000;
+}
+
+/* =========================
+   AJUSTEMENTS TABLETTE+
+   Provisoire
+   ========================= */
+
+@media screen and (min-width: 768px) {
+  header {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  #meilleur-film button {
+    align-self: flex-end;
+  }
+
+  .contenu-modale {
+    padding: 1.25rem;
+  }
+}
