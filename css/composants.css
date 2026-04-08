@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;600;700&display=swap");
+
 /* =========================
    COMPOSANTS
    ========================= */
@@ -9,53 +11,69 @@ body {
 
 /* =========================
    HEADER
-   Provisoire : à ajuster avec tes mesures
+   Desktop mesuré sur maquette
+   Tablette/mobile provisoires
    ========================= */
 
-header {
-  background-color: #6f858c;
-  color: #ffffff;
+.site-header {
+  width: 100%;
   min-height: 72px;
-  padding: 1rem 1.25rem;
+  margin: 0 auto 2rem;
+  padding: 1rem;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 1rem;
+  background-color: #61787f;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+}
+
+.site-header__logo {
+  width: 90px;
+  height: 66px;
+  flex: 0 0 90px;
+  margin: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: #000000;
+  font-size: 0.85rem;
+  line-height: 1;
   text-align: center;
 }
 
-header h1 {
+.site-header__title {
   margin: 0;
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-
-header p {
-  margin: 0;
-  font-size: 0.95rem;
+  color: #ffffff;
+  font-family: "Oswald", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 1.75rem;
+  line-height: 1;
 }
 
 /* =========================
    TITRES DE SECTION
-   Provisoire : à ajuster avec tes mesures
+   Desktop : mesure relevée
    ========================= */
 
 section h2 {
   margin-bottom: 0.75rem;
-  font-size: 1.8rem;
-  font-weight: 800;
   color: #000000;
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1;
 }
 
 /* =========================
    MEILLEUR FILM
-   Provisoire sauf bouton
+   Desktop mesuré sur maquette
    ========================= */
 
 #meilleur-film article {
-  border: 3px solid #000000;
-  background-color: #ffffff;
   padding: 0.75rem;
+  background-color: #ffffff;
+  border: 3px solid #000000;
 }
 
 #meilleur-film img {
@@ -67,20 +85,26 @@ section h2 {
 
 #meilleur-film h3 {
   margin-bottom: 0.5rem;
-  font-size: 1.8rem;
-  font-weight: 800;
   color: #000000;
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1;
 }
 
 #meilleur-film p {
   margin-bottom: 0;
-  font-size: 0.95rem;
   color: #000000;
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 200;
+  line-height: 1.2;
 }
 
 /* =========================
    CARTES DE FILMS
-   Provisoire : à ajuster avec tes mesures
+   Provisoires en attendant
+   tes mesures exactes
    ========================= */
 
 .liste-films article {
@@ -102,19 +126,16 @@ section h2 {
   left: 0.5rem;
   right: 0.5rem;
   margin: 0;
-  font-size: 0.95rem;
-  font-weight: 700;
   color: #ffffff;
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
 }
 
 /* =========================
    BOUTONS ROUGES
-   Validé avec ta maquette
-   - largeur : 166px
-   - hauteur : 68px
-   - rayon : 25px
-   - couleur : #FA0B0B
+   Mesurés sur maquette
    ========================= */
 
 #meilleur-film button,
@@ -132,19 +153,22 @@ section h2 {
   border-radius: 25px;
   background-color: #fa0b0b;
   color: #ffffff;
-  font-weight: 700;
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
   text-align: center;
   cursor: pointer;
 }
 
 /* =========================
    SELECT AUTRES
-   Provisoire : à ajuster avec tes mesures
+   Provisoire
    ========================= */
 
 #autres-categories label {
-  font-weight: 700;
   color: #000000;
+  font-family: "Oswald", Arial, sans-serif;
+  font-weight: 600;
 }
 
 #autres-categories select {
@@ -154,22 +178,23 @@ section h2 {
   border-radius: 0;
   background-color: #ffffff;
   color: #111827;
+  font-family: "Oswald", Arial, sans-serif;
 }
 
 /* =========================
    MODALE
-   Provisoire : on la refera avec tes mesures
+   Provisoire pour l’instant
    ========================= */
 
 #modale-film {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.55);
-  padding: 1rem;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.55);
 }
 
 #modale-film[hidden] {
@@ -181,9 +206,9 @@ section h2 {
   width: min(100%, 780px);
   max-height: 90vh;
   overflow-y: auto;
+  padding: 1rem;
   background-color: #ffffff;
   border: 4px solid #000000;
-  padding: 1rem;
 }
 
 .contenu-modale > button {
@@ -197,7 +222,8 @@ section h2 {
   border-radius: 25px;
   background-color: #fa0b0b;
   color: #ffffff;
-  font-weight: 700;
+  font-family: "Oswald", Arial, sans-serif;
+  font-weight: 600;
   cursor: pointer;
 }
 
@@ -209,32 +235,84 @@ section h2 {
 }
 
 .contenu-modale h2 {
-  font-size: 1.6rem;
-  font-weight: 800;
   color: #000000;
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
 }
 
 .contenu-modale p {
   margin-bottom: 0.75rem;
   color: #000000;
+  font-family: "Oswald", Arial, sans-serif;
 }
 
 /* =========================
-   AJUSTEMENTS TABLETTE+
+   TABLETTE+
    Provisoire
    ========================= */
 
 @media screen and (min-width: 768px) {
-  header {
-    justify-content: flex-start;
-    text-align: left;
-  }
-
   #meilleur-film button {
     align-self: flex-end;
   }
 
   .contenu-modale {
     padding: 1.25rem;
+  }
+}
+
+/* =========================
+   DESKTOP
+   Valeurs exactes :
+   header + meilleur film
+   ========================= */
+
+@media screen and (min-width: 1024px) {
+  .site-header {
+    max-width: 837px;
+    min-height: 122px;
+    padding: 16px 8px;
+  }
+
+  .site-header__logo {
+    width: 127px;
+    height: 94px;
+    flex-basis: 127px;
+    font-size: 1rem;
+  }
+
+  .site-header__title {
+    font-size: 40px;
+  }
+
+  section h2 {
+    font-size: 48px;
+  }
+
+  #meilleur-film article {
+    width: 835px;
+    min-height: 369px;
+    padding: 14px 16px;
+    border: 6px solid #000000;
+    box-sizing: border-box;
+  }
+
+  #meilleur-film img {
+    width: 227px;
+    max-width: 227px;
+    height: 334px;
+    object-fit: cover;
+  }
+
+  #meilleur-film h3 {
+    width: 463px;
+    font-size: 48px;
+  }
+
+  #meilleur-film p {
+    width: 501px;
+    font-size: 28px;
+    line-height: 1;
   }
 }
