@@ -1,3 +1,18 @@
+// Image de secours si l'affiche est cassée
+const FALLBACK_IMAGE_URL = "https://picsum.photos/300/450?grayscale";
+
+// Définit l'image d'un film
+function setMovieImage(imageElement, movie) {
+  imageElement.src = movie.image_url || FALLBACK_IMAGE_URL;
+  imageElement.alt = `Affiche du film ${movie.title}`;
+  imageElement.dataset.movieId = movie.id;
+
+  imageElement.onerror = function () {
+    imageElement.onerror = null;
+    imageElement.src = FALLBACK_IMAGE_URL;
+  };
+}
+
 // Récupère les éléments utiles d’une section
 function getSectionElements(sectionId) {
   const section = document.getElementById(sectionId);
@@ -22,9 +37,7 @@ function createMovieCard(movie) {
   article.dataset.movieId = movie.id;
 
   const image = document.createElement("img");
-  image.src = movie.image_url;
-  image.alt = `Affiche du film ${movie.title}`;
-  image.dataset.movieId = movie.id;
+  setMovieImage(image, movie);
 
   const title = document.createElement("h3");
   title.textContent = movie.title;
@@ -48,10 +61,9 @@ function renderBestMovie(movie) {
   const summary = section.querySelector("p");
   const detailsButton = section.querySelector('button[type="button"]');
 
+  // Met à jour l'image du meilleur film
   if (image) {
-    image.src = movie.image_url;
-    image.alt = `Affiche du film ${movie.title}`;
-    image.dataset.movieId = movie.id;
+    setMovieImage(image, movie);
   }
 
   if (title) {
