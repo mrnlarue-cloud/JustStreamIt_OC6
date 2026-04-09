@@ -31,6 +31,12 @@ function showPageError(message) {
   main.prepend(errorMessage);
 }
 
+// Charge la section "Autres"
+async function loadOtherCategory(genre) {
+  const otherMovies = await getMoviesByGenre(genre, 6);
+  renderMoviesSection("autres-categories", otherMovies);
+}
+
 // Charge toutes les données du jour 3
 async function initPage() {
   try {
