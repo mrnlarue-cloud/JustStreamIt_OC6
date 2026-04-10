@@ -1,10 +1,19 @@
-// Catégories fixes du projet
+/* global getBestMovie, getTopRatedMovies, getMoviesByGenre, getGenres, renderBestMovie, renderMoviesSection, renderSectionTitle, renderCategoryOptions */
+
 const FIXED_GENRE_1 = "Action";
 const FIXED_GENRE_2 = "Adventure";
+const DEFAULT_OTHER_GENRE = "Comedy";
 
-// Choisit une catégorie initiale pour la zone "Autres"
 function getInitialOtherGenre(genres) {
   const fixedGenres = new Set([FIXED_GENRE_1, FIXED_GENRE_2]);
+
+  const preferredGenre = genres.find((genre) => {
+    return genre.name === DEFAULT_OTHER_GENRE && !fixedGenres.has(genre.name);
+  });
+
+  if (preferredGenre) {
+    return preferredGenre.name;
+  }
 
   const otherGenre = genres.find((genre) => {
     return !fixedGenres.has(genre.name);
@@ -17,7 +26,6 @@ function getInitialOtherGenre(genres) {
   return otherGenre.name;
 }
 
-// Affiche un message d’erreur simple sur la page
 function showPageError(message) {
   const main = document.querySelector("main");
 
@@ -31,13 +39,33 @@ function showPageError(message) {
   main.prepend(errorMessage);
 }
 
-// Charge la section "Autres"
 async function loadOtherCategory(genre) {
+  if (!genre) {
+    return;
+  }
+
   const otherMovies = await getMoviesByGenre(genre, 6);
   renderMoviesSection("autres-categories", otherMovies);
 }
 
-// Charge toutes les données du jour 3
+function initOtherCategorySelect() {
+  const select = document.getElementById("select-categorie");
+
+  if (!select) {
+    return;
+  }
+
+  select.addEventListener("change", async (event) => {
+    const selectedGenre = event.target.value;
+
+    try {
+      await loadOtherCategory(selectedGenre);
+    } catch {
+      showPageError("Impossible de charger cette catégorie.");
+    }
+  });
+}
+
 async function initPage() {
   try {
     const bestMovie = await getBestMovie();
@@ -70,15 +98,11 @@ async function initPage() {
     const initialOtherGenre = getInitialOtherGenre(genres);
 
     renderCategoryOptions(genres, initialOtherGenre);
-
-    if (initialOtherGenre) {
-      const otherGenreMovies = await getMoviesByGenre(initialOtherGenre, 6);
-      renderMoviesSection("autres-categories", otherGenreMovies);
-    }
-  } catch (error) {
+    initOtherCategorySelect();
+    await loadOtherCategory(initialOtherGenre);
+  } catch {
     showPageError("Impossible de charger les données de l’application.");
   }
 }
 
-// Lance le chargement au démarrage de la page
 document.addEventListener("DOMContentLoaded", initPage);
