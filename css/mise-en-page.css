@@ -4,20 +4,24 @@ main {
   padding-top: 0;
 }
 
+/* Chaque section garde un espace en dessous */
 section {
   margin-bottom: 48px;
 }
 
+/* Le header reste centré dans la page */
 .site-header {
   width: 100%;
   margin: 32px auto 40px;
 }
 
+/* Les titres de section prennent toute la largeur disponible sur mobile */
 section h2 {
   width: 100%;
   margin: 0 0 12px;
 }
 
+/* Bloc Meilleur film */
 #meilleur-film article {
   width: 100%;
   margin: 0 auto;
@@ -34,6 +38,7 @@ section h2 {
   gap: 16px;
 }
 
+/* Grille des films */
 .liste-films {
   width: 100%;
   margin: 0 auto;
@@ -42,6 +47,7 @@ section h2 {
   gap: 16px;
 }
 
+/* Boutons Voir plus / Voir moins */
 #films-mieux-notes > button,
 #categorie-1 > button,
 #categorie-2 > button,
@@ -50,14 +56,19 @@ section h2 {
   margin: 16px auto 0;
 }
 
+/* Ligne du choix de catégorie */
 #autres-categories label {
+  display: inline-block;
   margin-right: 8px;
+  margin-bottom: 0;
+  vertical-align: middle;
 }
 
 #autres-categories select {
   display: inline-block;
   width: auto;
   margin-bottom: 16px;
+  vertical-align: middle;
 }
 
 @media screen and (min-width: 768px) {
@@ -100,5 +111,37 @@ section h2 {
   .liste-films {
     max-width: 835px;
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* On centre toute la section Autres sur la même largeur que la grille */
+  #autres-categories {
+    max-width: 835px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Une fois la section centrée, le titre n'a plus besoin d'être recentré séparément */
+  #autres-categories h2 {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* Le label et le select restent sur la même ligne en desktop */
+  #autres-categories label {
+    margin-right: 24px;
+  }
+
+  /* Largeur issue de tes mesures Figma
+     Hauteur approchée à partir de la maquette */
+  #autres-categories select {
+    width: 404px;
+    min-height: 78px;
+    margin-bottom: 24px;
+  }
+
+  /* La grille de la section prend toute la largeur utile de la section */
+  #autres-categories .liste-films {
+    max-width: none;
   }
 }
