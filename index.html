@@ -4,88 +4,95 @@
   <!-- Encodage des caractères -->
   <meta charset="UTF-8">
 
-  <!-- Permet l’affichage correct sur mobile et tablette -->
+  <!-- Affichage responsive sur mobile, tablette et desktop -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Titre affiché dans l’onglet du navigateur -->
+  <!-- Titre de l’onglet -->
   <title>JustStreamIt</title>
 
-  <!-- Feuilles de style séparées par rôle -->
+  <!-- Feuilles de style -->
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/mise-en-page.css">
   <link rel="stylesheet" href="css/composants.css">
 </head>
 <body>
-  <!-- En-tête principal du site -->
-<header class="site-header">
-  <div class="site-header__brand">
-    <span class="site-header__logo" aria-hidden="true"></span>
-    <span class="site-header__name">JustStreamIt</span>
-  </div>
-  <h1 class="site-header__title">Vidéos à la demande</h1>
-</header>
+  <!-- En-tête principal -->
+  <header class="site-header">
+    <div class="site-header__brand">
+      <span class="site-header__logo" aria-hidden="true"></span>
+      <span class="site-header__name">JustStreamIt</span>
+    </div>
+    <h1 class="site-header__title">Vidéos à la demande</h1>
+  </header>
 
-  <!-- Contenu principal de la page -->
+  <!-- Contenu principal -->
   <main>
-
     <!-- Section du meilleur film -->
-    <!-- Cette zone affichera plus tard le film avec la meilleure note IMDb -->
     <section id="meilleur-film" aria-labelledby="titre-meilleur-film">
       <h2 id="titre-meilleur-film">Meilleur film</h2>
 
-      <!-- Article = contenu autonome dans la section -->
       <article>
-        <!-- Image fictive en attendant les vraies données -->
-        <img src="https://picsum.photos/300/450" alt="Affiche fictive du meilleur film">
+        <img
+          src="https://picsum.photos/300/450"
+          alt="Affiche fictive du meilleur film"
+        >
 
-        <!-- Bloc texte du meilleur film -->
         <div>
           <h3>Titre du meilleur film</h3>
+
           <p>
             Résumé fictif du meilleur film. Ce contenu sera remplacé plus tard
             par les données de l’API.
           </p>
 
-          <!-- Bouton qui servira à ouvrir la modale -->
-          <button type="button">Détails</button>
+          <button
+            type="button"
+            aria-haspopup="dialog"
+            aria-controls="modale-film"
+          >
+            Détails
+          </button>
         </div>
       </article>
     </section>
 
-    <!-- Section des autres films les mieux notés -->
+    <!-- Section des films les mieux notés -->
     <section id="films-mieux-notes" aria-labelledby="titre-films-mieux-notes">
       <h2 id="titre-films-mieux-notes">Films les mieux notés</h2>
 
-      <!-- Conteneur qui regroupera les cartes de films -->
       <div class="liste-films">
         <article>
           <img src="https://picsum.photos/200/300?1" alt="Affiche film 1">
           <h3>Film 1</h3>
         </article>
+
         <article>
           <img src="https://picsum.photos/200/300?2" alt="Affiche film 2">
           <h3>Film 2</h3>
         </article>
+
         <article>
           <img src="https://picsum.photos/200/300?3" alt="Affiche film 3">
           <h3>Film 3</h3>
         </article>
+
         <article>
           <img src="https://picsum.photos/200/300?4" alt="Affiche film 4">
           <h3>Film 4</h3>
         </article>
+
         <article>
           <img src="https://picsum.photos/200/300?5" alt="Affiche film 5">
           <h3>Film 5</h3>
         </article>
+
         <article>
           <img src="https://picsum.photos/200/300?6" alt="Affiche film 6">
           <h3>Film 6</h3>
         </article>
       </div>
 
-      <!-- Bouton prévu pour le comportement responsive -->
-      <button type="button">Voir plus</button>
+      <button type="button" aria-expanded="false">Voir plus</button>
     </section>
 
     <!-- Première catégorie fixe -->
@@ -94,32 +101,37 @@
 
       <div class="liste-films">
         <article>
-          <img src="https://picsum.photos/200/300?7" alt="Affiche film 1 catégorie 1">
+          <img src="https://picsum.photos/200/300?7" alt="Affiche film A">
           <h3>Film A</h3>
         </article>
+
         <article>
-          <img src="https://picsum.photos/200/300?8" alt="Affiche film 2 catégorie 1">
+          <img src="https://picsum.photos/200/300?8" alt="Affiche film B">
           <h3>Film B</h3>
         </article>
+
         <article>
-          <img src="https://picsum.photos/200/300?9" alt="Affiche film 3 catégorie 1">
+          <img src="https://picsum.photos/200/300?9" alt="Affiche film C">
           <h3>Film C</h3>
         </article>
+
         <article>
-          <img src="https://picsum.photos/200/300?10" alt="Affiche film 4 catégorie 1">
+          <img src="https://picsum.photos/200/300?10" alt="Affiche film D">
           <h3>Film D</h3>
         </article>
+
         <article>
-          <img src="https://picsum.photos/200/300?11" alt="Affiche film 5 catégorie 1">
+          <img src="https://picsum.photos/200/300?11" alt="Affiche film E">
           <h3>Film E</h3>
         </article>
+
         <article>
-          <img src="https://picsum.photos/200/300?12" alt="Affiche film 6 catégorie 1">
+          <img src="https://picsum.photos/200/300?12" alt="Affiche film F">
           <h3>Film F</h3>
         </article>
       </div>
 
-      <button type="button">Voir plus</button>
+      <button type="button" aria-expanded="false">Voir plus</button>
     </section>
 
     <!-- Deuxième catégorie fixe -->
@@ -128,92 +140,105 @@
 
       <div class="liste-films">
         <article>
-          <img src="https://picsum.photos/200/300?13" alt="Affiche film 1 catégorie 2">
+          <img src="https://picsum.photos/200/300?13" alt="Affiche film G">
           <h3>Film G</h3>
         </article>
+
         <article>
-          <img src="https://picsum.photos/200/300?14" alt="Affiche film 2 catégorie 2">
+          <img src="https://picsum.photos/200/300?14" alt="Affiche film H">
           <h3>Film H</h3>
         </article>
+
         <article>
-          <img src="https://picsum.photos/200/300?15" alt="Affiche film 3 catégorie 2">
+          <img src="https://picsum.photos/200/300?15" alt="Affiche film I">
           <h3>Film I</h3>
         </article>
+
         <article>
-          <img src="https://picsum.photos/200/300?16" alt="Affiche film 4 catégorie 2">
+          <img src="https://picsum.photos/200/300?16" alt="Affiche film J">
           <h3>Film J</h3>
         </article>
+
         <article>
-          <img src="https://picsum.photos/200/300?17" alt="Affiche film 5 catégorie 2">
+          <img src="https://picsum.photos/200/300?17" alt="Affiche film K">
           <h3>Film K</h3>
         </article>
+
         <article>
-          <img src="https://picsum.photos/200/300?18" alt="Affiche film 6 catégorie 2">
+          <img src="https://picsum.photos/200/300?18" alt="Affiche film L">
           <h3>Film L</h3>
         </article>
       </div>
 
-      <button type="button">Voir plus</button>
+      <button type="button" aria-expanded="false">Voir plus</button>
     </section>
 
-    <!-- Section dynamique "Autres catégories" -->
-    <!-- Le select sera rempli plus tard avec les genres de l’API -->
+    <!-- Section Autres catégories -->
     <section id="autres-categories" aria-labelledby="titre-autres-categories">
       <h2 id="titre-autres-categories">Autres catégories</h2>
 
-      <!-- Label lié au select pour l’accessibilité -->
       <label for="select-categorie">Choisir une catégorie :</label>
 
-      <!-- Menu déroulant -->
       <select id="select-categorie" name="categorie">
-        <option>Action</option>
-        <option>Drama</option>
-        <option>Comedy</option>
+        <option value="Action">Action</option>
+        <option value="Drama">Drama</option>
+        <option value="Comedy">Comedy</option>
       </select>
 
-      <!-- Liste fictive de films pour la catégorie sélectionnée -->
       <div class="liste-films">
         <article>
-          <img src="https://picsum.photos/200/300?19" alt="Affiche film 1 autres catégories">
+          <img src="https://picsum.photos/200/300?19" alt="Affiche film M">
           <h3>Film M</h3>
         </article>
+
         <article>
-          <img src="https://picsum.photos/200/300?20" alt="Affiche film 2 autres catégories">
+          <img src="https://picsum.photos/200/300?20" alt="Affiche film N">
           <h3>Film N</h3>
         </article>
+
         <article>
-          <img src="https://picsum.photos/200/300?21" alt="Affiche film 3 autres catégories">
+          <img src="https://picsum.photos/200/300?21" alt="Affiche film O">
           <h3>Film O</h3>
         </article>
+
         <article>
-          <img src="https://picsum.photos/200/300?22" alt="Affiche film 4 autres catégories">
+          <img src="https://picsum.photos/200/300?22" alt="Affiche film P">
           <h3>Film P</h3>
         </article>
+
         <article>
-          <img src="https://picsum.photos/200/300?23" alt="Affiche film 5 autres catégories">
+          <img src="https://picsum.photos/200/300?23" alt="Affiche film Q">
           <h3>Film Q</h3>
         </article>
+
         <article>
-          <img src="https://picsum.photos/200/300?24" alt="Affiche film 6 autres catégories">
+          <img src="https://picsum.photos/200/300?24" alt="Affiche film R">
           <h3>Film R</h3>
         </article>
       </div>
 
-      <button type="button">Voir plus</button>
+      <button type="button" aria-expanded="false">Voir plus</button>
     </section>
   </main>
 
   <!-- Modale cachée au départ -->
-  <!-- hidden = non affichée tant que JavaScript ne l’ouvre pas -->
   <div id="modale-film" hidden>
-    <!-- Fenêtre de dialogue -->
-    <div class="contenu-modale" role="dialog" aria-modal="true" aria-labelledby="titre-modale-film">
-      <!-- Bouton de fermeture -->
+    <div
+      class="contenu-modale"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="titre-modale-film"
+      aria-describedby="resume-modale-film"
+    >
       <button type="button" aria-label="Fermer la fenêtre">Fermer</button>
 
-      <!-- Contenu fictif de la modale -->
-      <img src="https://picsum.photos/300/450?25" alt="Affiche fictive du film">
+      <img
+        src="https://picsum.photos/300/450?25"
+        alt="Affiche fictive du film"
+      >
+
       <h2 id="titre-modale-film">Titre du film</h2>
+
       <p><strong>Genres :</strong> Action, Drame</p>
       <p><strong>Date de sortie :</strong> 2020-01-01</p>
       <p><strong>Classification :</strong> 13+</p>
@@ -223,12 +248,13 @@
       <p><strong>Durée :</strong> 120 min</p>
       <p><strong>Pays :</strong> USA</p>
       <p><strong>Box-office :</strong> 1 000 000 $</p>
-      <p><strong>Résumé :</strong> Résumé complet du film.</p>
+      <p id="resume-modale-film">
+        <strong>Résumé :</strong> Résumé complet du film.
+      </p>
     </div>
   </div>
 
   <!-- Scripts JavaScript -->
-  <!-- On les charge à la fin du body pour que le HTML soit déjà présent -->
   <script src="js/utilitaires.js"></script>
   <script src="js/api-films.js"></script>
   <script src="js/films.js"></script>
