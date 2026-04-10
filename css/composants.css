@@ -1,24 +1,48 @@
+/* Import de la police utilisée dans la maquette */
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;600;700&display=swap");
 
+/* ----- Base générale du site ----- */
+
 body {
+  /* Fond blanc comme dans la maquette */
   background-color: #ffffff;
+
+  /* Texte noir par défaut */
   color: #000000;
+
+  /* Police principale du projet */
   font-family: "Oswald", Arial, sans-serif;
 }
 
+/* ----- En-tête ----- */
+
 .site-header {
+  /* Hauteur minimum du header */
   min-height: 100px;
+
+  /* Espace intérieur */
   padding: 16px;
+
+  /* Placement horizontal du logo et du titre */
   display: flex;
   align-items: center;
   gap: 16px;
+
+  /* Couleur de fond relevée sur la maquette */
   background-color: #61787f;
+
+  /* Bordure noire */
   border: 1px solid #000000;
+
+  /* On inclut la bordure dans la taille totale */
   box-sizing: border-box;
 }
 
 .site-header__brand {
+  /* Bloc logo + nom du site */
   flex: 0 0 auto;
+
+  /* Le logo et le nom sont empilés */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,6 +50,7 @@ body {
 }
 
 .site-header__logo {
+  /* Cercle qui sert de logo provisoire */
   width: 52px;
   height: 52px;
   position: relative;
@@ -36,6 +61,7 @@ body {
 }
 
 .site-header__logo::before {
+  /* Petit point central dans le logo */
   content: "";
   position: absolute;
   top: 50%;
@@ -48,12 +74,14 @@ body {
 }
 
 .site-header__name {
+  /* Petit texte JustStreamIt sous le logo */
   color: #000000;
   font-size: 0.75rem;
   line-height: 1;
 }
 
 .site-header__title {
+  /* Titre principal blanc du header */
   margin: 0;
   color: #ffffff;
   font-size: 32px;
@@ -61,14 +89,20 @@ body {
   line-height: 1;
 }
 
+/* ----- Titres de sections ----- */
+
 section h2 {
+  /* Style des grands titres de sections */
   color: #000000;
   font-size: 36px;
   font-weight: 600;
   line-height: 1;
 }
 
+/* ----- Bloc Meilleur film ----- */
+
 #meilleur-film article {
+  /* Carte principale avec bordure épaisse */
   padding: 16px;
   background-color: #ffffff;
   border: 6px solid #000000;
@@ -76,6 +110,7 @@ section h2 {
 }
 
 #meilleur-film img {
+  /* L’image prend toute la largeur disponible */
   width: 100%;
   height: auto;
   display: block;
@@ -84,6 +119,7 @@ section h2 {
 }
 
 #meilleur-film h3 {
+  /* Titre du meilleur film */
   margin: 0;
   color: #000000;
   font-size: 34px;
@@ -93,6 +129,7 @@ section h2 {
 }
 
 #meilleur-film p {
+  /* Résumé du meilleur film */
   margin: 0;
   color: #000000;
   font-size: 22px;
@@ -101,39 +138,59 @@ section h2 {
 }
 
 #meilleur-film button {
+  /* On laisse le bouton se placer proprement dans le bloc */
   align-self: center;
   margin-top: auto;
 }
+
+/* ----- Boutons rouges ----- */
 
 #meilleur-film button,
 #films-mieux-notes > button,
 #categorie-1 > button,
 #categorie-2 > button,
 #autres-categories > button {
+  /* Dimensions du bouton proches de la maquette */
   width: 166px;
   height: 68px;
+
+  /* Centrage du texte */
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  /* Espace intérieur horizontal */
   padding: 0 16px;
+
+  /* Pas de bordure visible */
   border: none;
+
+  /* Coins arrondis rouges */
   border-radius: 25px;
   background-color: #fa0b0b;
+
+  /* Texte blanc */
   color: #ffffff;
   font-family: "Oswald", Arial, sans-serif;
   font-size: 24px;
   font-weight: 600;
   line-height: 1;
+
+  /* Curseur de bouton */
   cursor: pointer;
 }
 
+/* ----- Cartes de films ----- */
+
 .liste-films article {
+  /* Chaque carte sert de conteneur pour l’image et le titre */
   position: relative;
   overflow: hidden;
   background-color: #ffffff;
 }
 
 .liste-films img {
+  /* Les affiches des cartes */
   width: 100%;
   aspect-ratio: 4 / 3;
   display: block;
@@ -142,6 +199,7 @@ section h2 {
 }
 
 .liste-films h3 {
+  /* Titre affiché par-dessus l’image */
   position: absolute;
   top: 8px;
   left: 8px;
@@ -154,13 +212,17 @@ section h2 {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
 }
 
+/* ----- Zone "Autres catégories" ----- */
+
 #autres-categories label {
+  /* Style du label devant le select */
   color: #000000;
   font-size: 24px;
   font-weight: 600;
 }
 
 #autres-categories select {
+  /* Style du menu déroulant */
   min-width: 170px;
   padding: 6px 32px 6px 8px;
   border: 1px solid #000000;
@@ -171,72 +233,195 @@ section h2 {
   font-size: 20px;
 }
 
+/* =========================================================
+   MODALE
+   ========================================================= */
+
+/* Fond sombre derrière la modale */
 #modale-film {
   position: fixed;
   inset: 0;
   z-index: 1000;
+
+  /* Centrage général de la fenêtre */
   display: flex;
   align-items: center;
   justify-content: center;
+
+  /* Espace autour sur petit écran */
   padding: 16px;
-  background-color: rgba(0, 0, 0, 0.55);
+
+  /* Overlay sombre */
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
+/* Quand la modale est cachée, on la retire de l’affichage */
 #modale-film[hidden] {
   display: none !important;
 }
 
+/* Fenêtre blanche de la modale */
 .contenu-modale {
+  /* Largeur tablette/mobile proche de la maquette */
   width: min(100%, 506px);
+
+  /* Hauteur max pour éviter qu’elle déborde de l’écran */
   max-height: 90vh;
+
+  /* Scroll interne si le contenu est long */
   overflow-y: auto;
-  padding: 16px;
+
+  /* Espace intérieur */
+  padding: 20px;
+
+  /* Fond et bordure */
   background-color: #ffffff;
-  border: 6px solid #000000;
+  border: 4px solid #000000;
   box-sizing: border-box;
+
+  /* On travaille en grille pour mieux contrôler l’ordre visuel */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+
+  /* Ombre légère pour détacher la modale du fond */
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+
+  /* Le positionnement relatif permet de placer le bouton de fermeture */
+  position: relative;
 }
 
+/* ---------------------------------------------------------
+   BOUTON DE FERMETURE EN MOBILE / TABLETTE
+   --------------------------------------------------------- */
+
 .contenu-modale > button {
-  width: 166px;
-  height: 68px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 16px;
+  /* Le bouton est placé en haut à droite */
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  /* Pas de fond rouge plein sur mobile */
+  background: transparent;
   border: none;
-  border-radius: 25px;
-  background-color: #fa0b0b;
-  color: #ffffff;
-  font-family: "Oswald", Arial, sans-serif;
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 1;
+
+  /* Zone cliquable */
+  width: 40px;
+  height: 40px;
+  padding: 0;
+
+  /* On cache visuellement le mot "Fermer" */
+  font-size: 0;
+
+  /* Curseur de bouton */
   cursor: pointer;
 }
 
-.contenu-modale img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto 16px;
-  border: 1px solid #000000;
-}
-
-.contenu-modale h2 {
-  margin: 0 0 12px;
-  color: #000000;
-  font-size: 32px;
-  font-weight: 600;
+/* On crée visuellement une croix rouge */
+.contenu-modale > button::before {
+  content: "×";
+  color: #fa0b0b;
+  font-size: 42px;
+  font-weight: 700;
   line-height: 1;
 }
 
+/* ---------------------------------------------------------
+   ORDRE VISUEL MOBILE / TABLETTE
+   --------------------------------------------------------- */
+
+/* Le titre vient d’abord */
+.contenu-modale h2 {
+  order: 1;
+  margin: 0;
+  color: #000000;
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1;
+  padding-right: 40px;
+}
+
+/* Style général des paragraphes */
 .contenu-modale p {
-  margin: 0 0 12px;
+  margin: 0;
   color: #000000;
   font-size: 20px;
   font-weight: 300;
-  line-height: 1.15;
+  line-height: 1.25;
 }
+
+/* Les labels forts dans les paragraphes */
+.contenu-modale p strong {
+  font-weight: 600;
+}
+
+/* Genres */
+.contenu-modale p:nth-of-type(1) {
+  order: 2;
+}
+
+/* Date */
+.contenu-modale p:nth-of-type(2) {
+  order: 3;
+}
+
+/* Classification */
+.contenu-modale p:nth-of-type(3) {
+  order: 4;
+}
+
+/* Score */
+.contenu-modale p:nth-of-type(4) {
+  order: 5;
+}
+
+/* Réalisateur */
+.contenu-modale p:nth-of-type(5) {
+  order: 6;
+}
+
+/* Résumé placé AVANT l’image sur mobile/tablette */
+.contenu-modale p:nth-of-type(10) {
+  order: 7;
+  padding-top: 8px;
+  border-top: 1px solid #000000;
+}
+
+/* Image après le résumé */
+.contenu-modale img {
+  order: 8;
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  display: block;
+  margin: 8px auto 0;
+  border: 1px solid #000000;
+  object-fit: cover;
+}
+
+/* Acteurs après l’image */
+.contenu-modale p:nth-of-type(6) {
+  order: 9;
+}
+
+/* Durée après les acteurs */
+.contenu-modale p:nth-of-type(7) {
+  order: 10;
+}
+
+/* Pays après la durée */
+.contenu-modale p:nth-of-type(8) {
+  order: 11;
+}
+
+/* Box-office en dernier */
+.contenu-modale p:nth-of-type(9) {
+  order: 12;
+}
+
+/* =========================================================
+   TABLETTE
+   ========================================================= */
 
 @media screen and (min-width: 768px) {
   .site-header {
@@ -267,41 +452,241 @@ section h2 {
   #meilleur-film button {
     align-self: flex-end;
   }
+
+  .contenu-modale {
+    padding: 24px;
+  }
+
+  .contenu-modale h2 {
+    font-size: 38px;
+  }
+
+  .contenu-modale p {
+    font-size: 21px;
+  }
+
+  .contenu-modale img {
+    max-width: 260px;
+  }
 }
 
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
 @media screen and (min-width: 1024px) {
+  /* Le header devient plus grand sur desktop */
   .site-header {
     min-height: 122px;
     padding: 16px 24px;
   }
 
+  /* Le bloc logo garde une largeur fixe */
   .site-header__brand {
     width: 127px;
   }
 
+  /* Le logo grossit */
   .site-header__logo {
     width: 94px;
     height: 94px;
   }
 
+  /* Le titre principal grossit */
   .site-header__title {
     font-size: 40px;
   }
 
+  /* Les titres de sections grossissent */
   section h2 {
     font-size: 48px;
   }
 
+  /* Le titre du meilleur film grossit */
   #meilleur-film h3 {
     font-size: 48px;
   }
 
+  /* Le résumé du meilleur film grossit */
   #meilleur-film p {
     font-size: 28px;
   }
 
+  /* -------------------------------------------------------
+     MODALE DESKTOP
+     ------------------------------------------------------- */
+
+  #modale-film {
+    /* Espace autour de la modale */
+    padding: 32px;
+  }
+
   .contenu-modale {
-    width: 778px;
-    min-height: 939px;
+    /* Largeur de la maquette desktop */
+   width: 778px;
+
+    /* Hauteur fixe */
+  height: 939px;
+
+    /* Fond et bordure */
+    background-color: #ffffff;
+    border: 6px solid #000000;
+    box-sizing: border-box;
+
+    /* Espace intérieur :
+       on réserve de la place à droite pour l’affiche */
+    padding: 18px 160px 20px 18px;
+
+    /* On sort du système en grille pour éviter les espacements géants */
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    /* La modale peut défiler si besoin */
+    overflow-y: auto;
+
+    /* Permet de placer l’affiche en absolu à droite */
+    position: relative;
+  }
+
+  .contenu-modale > button {
+  /* Le bouton redevient un vrai bouton rouge en bas */
+  position: static;
+
+  /* On le met tout à la fin */
+  order: 99;
+
+  /* Centrage horizontal */
+  align-self: center;
+  margin-top: 14px;
+  margin-left: auto;
+  margin-right: auto;
+
+  /* Dimensions proches de la maquette */
+  width: 140px;
+  height: 26px;
+  padding: 0 14px;
+
+  /* Style du bouton */
+  border: none;
+  border-radius: 25px;
+  background-color: #fa0b0b;
+  color: #ffffff;
+
+  /* Le texte "Fermer" redevient visible */
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+  .contenu-modale > button::before {
+    /* On supprime la croix générée sur desktop */
+    content: none;
+  }
+
+  .contenu-modale img {
+    /* L’affiche reste en haut à droite */
+    position: absolute;
+    top: 18px;
+    right: 18px;
+
+    /* Taille plus proche de la maquette */
+    width: 120px;
+    max-width: 120px;
+    height: auto;
+
+    margin: 0;
+    border: 1px solid #000000;
+    object-fit: cover;
+  }
+
+  .contenu-modale h2 {
+    /* Le titre du film */
+    order: 1;
+    margin: 0 0 10px;
+    padding-right: 0;
+
+    color: #000000;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .contenu-modale p {
+    /* Tous les paragraphes du texte */
+    margin: 0 0 8px;
+
+    color: #000000;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.35;
+  }
+
+  .contenu-modale p strong {
+    /* Les intitulés doivent rester franchement visibles */
+    font-weight: 600;
+  }
+
+  .contenu-modale p:nth-of-type(1) {
+    /* Genres */
+    order: 2;
+  }
+
+  .contenu-modale p:nth-of-type(2) {
+    /* Date de sortie */
+    order: 3;
+  }
+
+  .contenu-modale p:nth-of-type(3) {
+    /* Classification */
+    order: 4;
+  }
+
+  .contenu-modale p:nth-of-type(4) {
+    /* Score IMDb */
+    order: 5;
+  }
+
+  .contenu-modale p:nth-of-type(9) {
+    /* Box-office remonté plus haut */
+    order: 6;
+    margin-bottom: 14px;
+  }
+
+  .contenu-modale p:nth-of-type(5) {
+    /* Réalisateur */
+    order: 7;
+    margin-bottom: 14px;
+  }
+
+  .contenu-modale p:nth-of-type(10) {
+    /* Résumé au centre du bloc texte */
+    order: 8;
+
+    /* On annule la bordure héritée du mobile */
+    padding-top: 0;
+    border-top: none;
+
+    margin-bottom: 14px;
+    line-height: 1.45;
+  }
+
+  .contenu-modale p:nth-of-type(6) {
+    /* Acteurs vers le bas */
+    order: 9;
+  }
+
+  .contenu-modale p:nth-of-type(7) {
+    /* Durée */
+    order: 10;
+  }
+
+  .contenu-modale p:nth-of-type(8) {
+    /* Pays */
+    order: 11;
+    margin-bottom: 0;
   }
 }
