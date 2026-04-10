@@ -94,11 +94,12 @@ L’utilisation d’un environnement virtuel est recommandée pour isoler les d�
 
 ```bash
 python -m venv env
-env\Scripts\activate
-pip install -r requirements.txt
-python manage.py create_db
-python manage.py runserver
+.\env\Scripts\python.exe -m pip install -r requirements.txt
+.\env\Scripts\python.exe manage.py create_db
+.\env\Scripts\python.exe manage.py runserver
 ```
+
+Sous Windows, utiliser directement `.\env\Scripts\python.exe` permet de lancer l’API avec le bon interpréteur Python de l’environnement virtuel.
 
 #### macOS / Linux
 
@@ -123,8 +124,7 @@ Ou, si un environnement virtuel est utilisé :
 #### Windows
 
 ```bash
-env\Scripts\activate
-python manage.py runserver
+.\env\Scripts\python.exe manage.py runserver
 ```
 
 #### macOS / Linux
