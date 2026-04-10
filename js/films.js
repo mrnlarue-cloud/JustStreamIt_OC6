@@ -1,4 +1,4 @@
-const FALLBACK_IMAGE_URL = "https://picsum.photos/300/450?grayscale";
+const FALLBACK_IMAGE_URL = "image_manquante/Affiche_film_manquante.png";
 
 // Sections concernées par le bouton Voir plus / Voir moins
 const TOGGLE_SECTION_IDS = [
