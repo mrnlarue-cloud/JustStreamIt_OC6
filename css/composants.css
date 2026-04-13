@@ -17,81 +17,54 @@ body {
 }
 
 /* =========================================================
-   EN-TÊTE
+   EN-TÊTE - DESKTOP
    ========================================================= */
 
 .site-header {
-  /* Hauteur minimum du bandeau */
-  min-height: 100px;
+  /* Dimensions générales du header */
+  width: 837px;
+  min-height: 122px;
+  padding: 14px 24px;
 
-  /* Espaces internes */
-  padding: 16px;
-
-  /* Alignement horizontal */
+  /* Alignement du contenu */
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 28px;
 
-  /* Fond du header */
+  /* Apparence du bandeau */
   background-color: #61787f;
-
-  /* Bordure */
   border: 1px solid #000000;
   box-sizing: border-box;
 }
 
 .site-header__brand {
-  /* Bloc contenant le logo et le nom */
-  flex: 0 0 auto;
+  /* Zone réservée au logo */
+  width: 127px;
+  min-width: 127px;
+  height: 94px;
 
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
 }
 
-.site-header__logo {
-  /* Logo provisoire circulaire */
-  width: 52px;
-  height: 52px;
-  position: relative;
+.site-header__logo-image {
+  /* Taille réelle du logo */
+  width: 127px;
+  height: 94px;
   display: block;
-
-  border: 3px solid #000000;
-  border-radius: 50%;
-  box-sizing: border-box;
-}
-
-.site-header__logo::before {
-  /* Point central du logo */
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
-  width: 14px;
-  height: 14px;
-
-  background-color: #000000;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.site-header__name {
-  /* Petit texte sous le logo */
-  color: #000000;
-  font-size: 0.75rem;
-  line-height: 1;
+  object-fit: contain;
 }
 
 .site-header__title {
-  /* Titre principal du header */
+  /* Titre principal du header desktop */
   margin: 0;
 
   color: #ffffff;
-  font-size: 32px;
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: 40px;
   font-weight: 300;
-  line-height: 1;
+  line-height: 1.1;
 }
 
 /* =========================================================
