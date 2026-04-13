@@ -1,147 +1,301 @@
+/* =========================================================
+   MISE EN PAGE — BASE DESKTOP
+   ========================================================= */
+
 main {
-  width: min(calc(100% - 32px), 456px);
+  /* Largeur maximale du cadre desktop relevée sur la maquette */
+  width: min(calc(100% - 64px), 1054px);
+
+  /* Centrage de la page */
   margin: 0 auto;
+
+  /* Pas d’espace en haut du contenu principal */
   padding-top: 0;
 }
 
-/* Chaque section garde un espace en dessous */
 section {
-  margin-bottom: 48px;
+  /* Espace entre les sections */
+  margin-bottom: 64px;
 }
 
-/* Le header reste centré dans la page */
 .site-header {
-  width: 100%;
+  /* Le header reste centré dans la page */
+  width: min(100%, 837px);
   margin: 32px auto 40px;
 }
 
-/* Les titres de section prennent toute la largeur disponible sur mobile */
 section h2 {
+  /* Le titre suit la largeur de sa section */
   width: 100%;
-  margin: 0 0 12px;
+  margin: 0 0 24px;
 }
 
-/* Bloc Meilleur film */
+/* ---------------------------------------------------------
+   BLOC "MEILLEUR FILM"
+   --------------------------------------------------------- */
+
+#meilleur-film,
+#films-mieux-notes,
+#categorie-1,
+#categorie-2,
+#autres-categories {
+  /* Toutes les grandes sections desktop partagent
+     la même largeur utile et le même centrage */
+  width: min(100%, 835px);
+  margin: 0 auto;
+}
+
 #meilleur-film article {
+  /* Le composant prend toute la largeur de sa section */
   width: 100%;
   margin: 0 auto;
+
+  /* Structure desktop :
+     affiche à gauche, contenu à droite */
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
+  grid-template-columns: 227px 1fr;
+  gap: 36px;
   align-items: start;
 }
 
 #meilleur-film article > div {
+  /* La colonne de droite peut se réduire sans casser */
   min-width: 0;
+
+  /* Organisation verticale du contenu texte */
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  /* Le bouton peut se pousser en bas si besoin */
+  min-height: 334px;
 }
 
-/* Grille des films */
+/* ---------------------------------------------------------
+   GRILLES DE FILMS
+   --------------------------------------------------------- */
+
 .liste-films {
+  /* La grille prend toute la largeur de sa section */
   width: 100%;
-  margin: 0 auto;
+  margin: 0;
+
+  /* Trois colonnes en desktop */
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
 
-/* Boutons Voir plus / Voir moins */
+/* ---------------------------------------------------------
+   BOUTONS "VOIR PLUS / VOIR MOINS"
+   --------------------------------------------------------- */
+
 #films-mieux-notes > button,
 #categorie-1 > button,
 #categorie-2 > button,
 #autres-categories > button {
+  /* Le bouton est centré sous la grille */
   display: block;
   margin: 16px auto 0;
 }
 
-/* Ligne du choix de catégorie */
+/* ---------------------------------------------------------
+   SECTION "AUTRES CATÉGORIES"
+   --------------------------------------------------------- */
+
+#autres-categories h2 {
+  /* Le titre reste aligné sur la section */
+  width: 100%;
+  margin: 0 0 16px;
+}
+
 #autres-categories label {
+  /* Le libellé reste sur la même ligne que le select */
   display: inline-block;
-  margin-right: 8px;
+  margin-right: 24px;
   margin-bottom: 0;
   vertical-align: middle;
 }
 
 #autres-categories select {
+  /* Largeur desktop issue de la maquette */
   display: inline-block;
-  width: auto;
-  margin-bottom: 16px;
+  width: 404px;
+  min-height: 78px;
+  margin-bottom: 32px;
   vertical-align: middle;
 }
 
-@media screen and (min-width: 768px) {
+#autres-categories .liste-films {
+  /* La grille reprend toute la largeur de la section */
+  width: 100%;
+  max-width: none;
+}
+
+/* =========================================================
+   MISE EN PAGE — TABLETTE
+   ========================================================= */
+
+@media screen and (max-width: 1023px) {
   main {
+    /* Largeur maximale tablette */
     width: min(calc(100% - 48px), 788px);
   }
 
-  #meilleur-film article {
-    grid-template-columns: 180px 1fr;
-    min-height: 280px;
-  }
-
-  .liste-films {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  main {
-    width: min(calc(100% - 64px), 1054px);
+  section {
+    /* Un peu moins d’espace entre les sections */
+    margin-bottom: 40px;
   }
 
   .site-header {
-    max-width: 837px;
+    /* Le header devient fluide */
+    width: 100%;
+    margin: 24px auto 32px;
   }
 
   section h2 {
-    max-width: 835px;
-    margin-left: auto;
-    margin-right: auto;
+    /* Les titres utilisent toute la largeur disponible */
+    width: 100%;
+    margin: 0 0 12px;
+  }
+
+  #meilleur-film {
+    /* La section reprend toute la largeur utile tablette */
+    width: 100%;
   }
 
   #meilleur-film article {
-    max-width: 835px;
-    min-height: 369px;
-    grid-template-columns: 227px 1fr;
-    gap: 28px;
+    /* Toujours en deux colonnes, mais plus compact */
+    width: 100%;
+    grid-template-columns: 180px 1fr;
+    gap: 20px;
+    min-height: 280px;
+  }
+
+  #meilleur-film article > div {
+    /* La colonne texte reste souple */
+    min-width: 0;
   }
 
   .liste-films {
-    max-width: 835px;
-    grid-template-columns: repeat(3, 1fr);
+    /* Deux colonnes en tablette */
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  /* On centre toute la section Autres sur la même largeur que la grille */
   #autres-categories {
-    max-width: 835px;
-    margin-left: auto;
-    margin-right: auto;
+    /* La section devient fluide */
+    width: 100%;
   }
 
-  /* Une fois la section centrée, le titre n'a plus besoin d'être recentré séparément */
   #autres-categories h2 {
-    max-width: none;
-    margin-left: 0;
-    margin-right: 0;
+    /* Le titre reprend toute la largeur */
+    width: 100%;
+    margin: 0 0 12px;
   }
 
-  /* Le label et le select restent sur la même ligne en desktop */
   #autres-categories label {
-    margin-right: 24px;
+    /* Le libellé reste sur la même ligne */
+    margin-right: 16px;
   }
 
-  /* Largeur issue de tes mesures Figma
-     Hauteur approchée à partir de la maquette */
   #autres-categories select {
-    width: 404px;
-    min-height: 78px;
-    margin-bottom: 24px;
+    /* Le select redevient souple */
+    width: auto;
+    min-height: auto;
+    margin-bottom: 16px;
   }
 
-  /* La grille de la section prend toute la largeur utile de la section */
   #autres-categories .liste-films {
-    max-width: none;
+    /* La grille suit la largeur tablette */
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   MISE EN PAGE — MOBILE
+   ========================================================= */
+
+@media screen and (max-width: 767px) {
+  main {
+    /* Largeur maximale mobile */
+    width: min(calc(100% - 32px), 456px);
+  }
+
+  section {
+    /* Espace vertical plus compact */
+    margin-bottom: 32px;
+  }
+
+  .site-header {
+    /* Header mobile */
+    width: 100%;
+    margin: 20px auto 28px;
+  }
+
+  section h2 {
+    /* Titres pleine largeur en mobile */
+    width: 100%;
+    margin: 0 0 12px;
+  }
+
+  #meilleur-film {
+    /* Section fluide */
+    width: 100%;
+  }
+
+  #meilleur-film article {
+    /* Le meilleur film passe en colonne unique */
+    width: 100%;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+
+  #meilleur-film article > div {
+    /* Le contenu se range proprement sous l’image */
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .liste-films {
+    /* Une colonne en mobile */
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+
+  #autres-categories {
+    /* Section fluide */
+    width: 100%;
+  }
+
+  #autres-categories h2 {
+    /* Titre pleine largeur */
+    width: 100%;
+    margin: 0 0 12px;
+  }
+
+  #autres-categories label {
+    /* Le libellé passe au-dessus du select */
+    display: block;
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+
+  #autres-categories select {
+    /* Le select occupe toute la largeur mobile */
+    display: block;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  #autres-categories .liste-films {
+    /* La grille suit la largeur mobile */
+    width: 100%;
   }
 }
