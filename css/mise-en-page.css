@@ -1,135 +1,254 @@
 /* =========================================================
-   MISE EN PAGE — BASE DESKTOP
+   MISE EN PAGE — DESKTOP
    ========================================================= */
 
 main {
-  /* Largeur maximale du cadre desktop relevée sur la maquette */
-  width: min(calc(100% - 64px), 1054px);
-
-  /* Centrage de la page */
+  /* Largeur utile du contenu desktop */
+  width: min(calc(100% - 64px), 837px);
   margin: 0 auto;
-
-  /* Pas d’espace en haut du contenu principal */
   padding-top: 0;
 }
 
 section {
-  /* Espace entre les sections */
-  margin-bottom: 64px;
+  /* Espace vertical entre les grandes sections */
+  width: 100%;
+  margin: 0 auto 48px;
 }
 
 .site-header {
-  /* Le header reste centré dans la page */
-  width: min(100%, 837px);
-  margin: 32px auto 40px;
+  /* Largeur du header desktop, centrée comme sur la maquette */
+  width: min(calc(100% - 64px), 837px);
+  min-height: 122px;
+  margin: 32px auto 56px;
+  padding: 14px 24px;
+
+  display: flex;
+  align-items: center;
+  gap: 28px;
+
+  background-color: var(--couleur-entete);
+  border: 1px solid var(--couleur-bordure);
+}
+
+.site-header__brand {
+  /* Zone réservée au logo */
+  width: 127px;
+  min-width: 127px;
+  height: 94px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.site-header__logo-image {
+  /* Dimensions du logo desktop */
+  width: 127px;
+  height: 94px;
+  object-fit: contain;
+}
+
+.site-header__title {
+  /* Titre principal de l’en-tête */
+  margin: 0;
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 1.1;
 }
 
 section h2 {
-  /* Le titre suit la largeur de sa section */
+  /* Titre principal de chaque section */
   width: 100%;
-  margin: 0 0 24px;
+  margin: 0 0 28px;
+  color: #000000;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1;
 }
 
-/* ---------------------------------------------------------
-   BLOC "MEILLEUR FILM"
-   --------------------------------------------------------- */
-
-#meilleur-film,
-#films-mieux-notes,
-#categorie-1,
-#categorie-2,
-#autres-categories {
-  /* Toutes les grandes sections desktop partagent
-     la même largeur utile et le même centrage */
-  width: min(100%, 835px);
-  margin: 0 auto;
-}
+/* =========================================================
+   MISE EN PAGE — BLOC MEILLEUR FILM
+   ========================================================= */
 
 #meilleur-film article {
-  /* Le composant prend toute la largeur de sa section */
+  /* Bloc principal du film vedette */
   width: 100%;
-  margin: 0 auto;
+  min-height: 369px;
+  padding: 12px 14px;
 
-  /* Structure desktop :
-     affiche à gauche, contenu à droite */
   display: grid;
   grid-template-columns: 227px 1fr;
-  gap: 36px;
+  column-gap: 28px;
   align-items: start;
+
+  background-color: #ffffff;
+  border: 6px solid #000000;
+}
+
+#meilleur-film img {
+  /* Affiche du film vedette */
+  grid-column: 1;
+  grid-row: 1 / span 3;
+
+  width: 227px;
+  height: 334px;
+
+  object-fit: cover;
 }
 
 #meilleur-film article > div {
-  /* La colonne de droite peut se réduire sans casser */
+  /* Colonne de texte et bouton à droite */
   min-width: 0;
+  min-height: 334px;
 
-  /* Organisation verticale du contenu texte */
   display: flex;
   flex-direction: column;
   gap: 16px;
-
-  /* Le bouton peut se pousser en bas si besoin */
-  min-height: 334px;
 }
 
-/* ---------------------------------------------------------
-   GRILLES DE FILMS
-   --------------------------------------------------------- */
+#meilleur-film h3 {
+  /* Titre du film vedette */
+  margin: 0;
+  color: #000000;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1;
+}
 
-.liste-films {
-  /* La grille prend toute la largeur de sa section */
-  width: 100%;
+#meilleur-film p {
+  /* Résumé du film vedette */
+  width: 501px;
+  max-width: 100%;
   margin: 0;
 
-  /* Trois colonnes en desktop */
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  color: #000000;
+  font-size: 28px;
+  font-weight: 200;
+  line-height: 1.45;
 }
 
-/* ---------------------------------------------------------
-   BOUTONS "VOIR PLUS / VOIR MOINS"
-   --------------------------------------------------------- */
+#meilleur-film button {
+  /* Bouton Détails du film vedette */
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+/* =========================================================
+   MISE EN PAGE — BOUTONS DE LA PAGE
+   ========================================================= */
+
+#meilleur-film button,
+#films-mieux-notes > button,
+#categorie-1 > button,
+#categorie-2 > button,
+#autres-categories > button {
+  /* Dimensions et style communs des boutons rouges */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 166px;
+  height: 68px;
+  padding: 0 16px;
+
+  border: none;
+  border-radius: 25px;
+  background-color: var(--couleur-bouton);
+
+  color: var(--couleur-bouton-texte);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1;
+}
 
 #films-mieux-notes > button,
 #categorie-1 > button,
 #categorie-2 > button,
 #autres-categories > button {
-  /* Le bouton est centré sous la grille */
+  /* Boutons Voir plus / Voir moins centrés sous les grilles */
   display: block;
   margin: 16px auto 0;
 }
 
-/* ---------------------------------------------------------
-   SECTION "AUTRES CATÉGORIES"
-   --------------------------------------------------------- */
+/* =========================================================
+   MISE EN PAGE — GRILLES ET CARTES
+   ========================================================= */
 
-#autres-categories h2 {
-  /* Le titre reste aligné sur la section */
+.liste-films {
+  /* Grille desktop sur trois colonnes */
   width: 100%;
-  margin: 0 0 16px;
+  margin: 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
 
+.liste-films article {
+  /* Conteneur d’une carte film */
+  position: relative;
+  overflow: hidden;
+
+  background-color: #ffffff;
+}
+
+.liste-films img {
+  /* Affiche d’un film dans une grille */
+  width: 100%;
+  aspect-ratio: 252 / 247;
+
+  object-fit: cover;
+  border: 1px solid #000000;
+}
+
+.liste-films h3 {
+  /* Titre placé par-dessus l’affiche */
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+
+  margin: 0;
+
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1;
+
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* =========================================================
+   MISE EN PAGE — AUTRES CATÉGORIES
+   ========================================================= */
+
 #autres-categories label {
-  /* Le libellé reste sur la même ligne que le select */
+  /* Libellé du menu déroulant */
   display: inline-block;
-  margin-right: 24px;
-  margin-bottom: 0;
+  margin: 0 24px 32px 0;
   vertical-align: middle;
+
+  color: #000000;
+  font-size: 24px;
+  font-weight: 600;
 }
 
 #autres-categories select {
-  /* Largeur desktop issue de la maquette */
+  /* Style et largeur du menu déroulant desktop */
   display: inline-block;
   width: 404px;
   min-height: 78px;
-  margin-bottom: 32px;
+  margin: 0 0 32px;
+  padding: 6px 32px 6px 8px;
   vertical-align: middle;
-}
 
-#autres-categories .liste-films {
-  /* La grille reprend toute la largeur de la section */
-  width: 100%;
-  max-width: none;
+  border: 1px solid #000000;
+  border-radius: 0;
+  background-color: #ffffff;
+
+  color: #000000;
+  font-size: 20px;
 }
 
 /* =========================================================
@@ -138,77 +257,106 @@ section h2 {
 
 @media screen and (max-width: 1023px) {
   main {
-    /* Largeur maximale tablette */
+    /* Largeur utile tablette */
     width: min(calc(100% - 48px), 788px);
   }
 
   section {
-    /* Un peu moins d’espace entre les sections */
+    /* Espacement vertical tablette */
     margin-bottom: 40px;
   }
 
   .site-header {
-    /* Le header devient fluide */
-    width: 100%;
+    /* Largeur utile du header en tablette */
+    width: min(calc(100% - 48px), 788px);
+    min-height: 122px;
     margin: 24px auto 32px;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .site-header__brand {
+    /* Bloc logo tablette */
+    width: 96px;
+    min-width: 96px;
+    height: auto;
+  }
+
+  .site-header__logo-image {
+    /* Taille du logo tablette */
+    width: 96px;
+    height: auto;
+  }
+
+  .site-header__title {
+    /* Titre de l’en-tête tablette */
+    font-size: 36px;
   }
 
   section h2 {
-    /* Les titres utilisent toute la largeur disponible */
-    width: 100%;
-    margin: 0 0 12px;
-  }
-
-  #meilleur-film {
-    /* La section reprend toute la largeur utile tablette */
-    width: 100%;
+    /* Titre de section tablette */
+    margin: 0 0 16px;
+    font-size: 42px;
   }
 
   #meilleur-film article {
-    /* Toujours en deux colonnes, mais plus compact */
-    width: 100%;
-    grid-template-columns: 180px 1fr;
-    gap: 20px;
-    min-height: 280px;
+    /* Le bloc meilleur film passe en colonne */
+    min-height: auto;
+    padding: 16px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  #meilleur-film img {
+    /* Affiche du meilleur film tablette */
+    width: 227px;
+    height: auto;
+    margin: 0 auto;
+
+    border: 1px solid #000000;
   }
 
   #meilleur-film article > div {
-    /* La colonne texte reste souple */
-    min-width: 0;
+    /* Colonne texte tablette */
+    min-height: auto;
+    gap: 16px;
+  }
+
+  #meilleur-film h3 {
+    /* Titre du meilleur film tablette */
+    font-size: 40px;
+  }
+
+  #meilleur-film p {
+    /* Résumé du meilleur film tablette */
+    width: 100%;
+    font-size: 24px;
+    line-height: 1.35;
+  }
+
+  #meilleur-film button {
+    /* Bouton du meilleur film tablette */
+    align-self: flex-end;
+    margin-top: 0;
   }
 
   .liste-films {
-    /* Deux colonnes en tablette */
-    width: 100%;
+    /* Grille tablette sur deux colonnes */
     grid-template-columns: repeat(2, 1fr);
   }
 
-  #autres-categories {
-    /* La section devient fluide */
-    width: 100%;
-  }
-
-  #autres-categories h2 {
-    /* Le titre reprend toute la largeur */
-    width: 100%;
-    margin: 0 0 12px;
-  }
-
   #autres-categories label {
-    /* Le libellé reste sur la même ligne */
-    margin-right: 16px;
+    /* Espacement du label tablette */
+    margin: 0 16px 16px 0;
   }
 
   #autres-categories select {
-    /* Le select redevient souple */
-    width: auto;
+    /* Select tablette plus souple */
+    width: min(100%, 320px);
     min-height: auto;
-    margin-bottom: 16px;
-  }
-
-  #autres-categories .liste-films {
-    /* La grille suit la largeur tablette */
-    width: 100%;
+    margin: 0 0 16px;
   }
 }
 
@@ -218,84 +366,78 @@ section h2 {
 
 @media screen and (max-width: 767px) {
   main {
-    /* Largeur maximale mobile */
+    /* Largeur utile mobile */
     width: min(calc(100% - 32px), 456px);
   }
 
   section {
-    /* Espace vertical plus compact */
+    /* Espacement vertical mobile */
     margin-bottom: 32px;
   }
 
   .site-header {
-    /* Header mobile */
-    width: 100%;
+    /* Largeur utile du header en mobile */
+    width: min(calc(100% - 32px), 456px);
+    min-height: 100px;
     margin: 20px auto 28px;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .site-header__brand {
+    /* Bloc logo mobile */
+    width: 72px;
+    min-width: 72px;
+  }
+
+  .site-header__logo-image {
+    /* Taille du logo mobile */
+    width: 72px;
+    height: auto;
+  }
+
+  .site-header__title {
+    /* Titre de l’en-tête mobile */
+    font-size: 32px;
   }
 
   section h2 {
-    /* Titres pleine largeur en mobile */
-    width: 100%;
+    /* Titre de section mobile */
     margin: 0 0 12px;
+    font-size: 36px;
   }
 
-  #meilleur-film {
-    /* Section fluide */
-    width: 100%;
+  #meilleur-film h3 {
+    /* Titre du meilleur film mobile */
+    font-size: 34px;
   }
 
-  #meilleur-film article {
-    /* Le meilleur film passe en colonne unique */
-    width: 100%;
-    margin: 0 auto;
-
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    align-items: start;
+  #meilleur-film p {
+    /* Résumé du meilleur film mobile */
+    font-size: 22px;
+    line-height: 1.2;
   }
 
-  #meilleur-film article > div {
-    /* Le contenu se range proprement sous l’image */
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  #meilleur-film button {
+    /* Bouton centré sur mobile */
+    align-self: center;
   }
 
   .liste-films {
-    /* Une colonne en mobile */
-    width: 100%;
+    /* Grille mobile sur une seule colonne */
     grid-template-columns: 1fr;
   }
 
-  #autres-categories {
-    /* Section fluide */
-    width: 100%;
-  }
-
-  #autres-categories h2 {
-    /* Titre pleine largeur */
-    width: 100%;
-    margin: 0 0 12px;
-  }
-
   #autres-categories label {
-    /* Le libellé passe au-dessus du select */
+    /* Le label passe au-dessus du select */
     display: block;
-    margin-right: 0;
-    margin-bottom: 8px;
+    margin: 0 0 8px;
   }
 
   #autres-categories select {
-    /* Le select occupe toute la largeur mobile */
+    /* Le select prend toute la largeur mobile */
     display: block;
     width: 100%;
-    margin-bottom: 16px;
-  }
-
-  #autres-categories .liste-films {
-    /* La grille suit la largeur mobile */
-    width: 100%;
+    margin: 0 0 16px;
   }
 }
