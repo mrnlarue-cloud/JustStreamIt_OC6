@@ -461,4 +461,4 @@ Ce découpage facilite la lecture, la maintenance et l’explication du projet e
 
 ## Auteur
 
-Projet réalisé par **Marion.LARUE** dans le cadre de ma formation **OpenClassrooms**.
+Projet réalisé par **Marion LARUE** dans le cadre de ma formation **OpenClassrooms**.
